@@ -1,0 +1,39 @@
+<script>
+    //DATA
+    const PIN = "1234"  //WHY NOT NUMBER
+    let pin   = ""
+    let tries  = 0
+    let balance = 10000000.00
+
+    
+    while (true) {
+        pin = prompt("ENTER PIN")
+        tries++
+        if (pin == PIN) {
+            //////////////////////////////
+            alert(`
+            "ACCES GRANTED!!!"\n\n
+            your balance: ${balance}MDL
+            `)
+            let money = +prompt("WITHDRAW: ?")
+            //HW1: UPGRADE -CHECK BALANCE
+            // HW1: max amount = 50000.00 -done
+            if (money > 50000.00) {
+                alert("Can not withdraw more than 50000.00 MDL")
+            }else{
+            balance -= money  //balance = balance - money
+            alert(`
+            SUCCESS!!!\n\n
+            Your balance : ${balance}MDL`)
+            }
+            /////////////////////////////
+            break 
+        }else {
+            alert("WRONG PIN!!!")
+            if (tries == 3) {
+                alert("CARD BLOCKED!!!")
+                break               // force WHILE STOP
+            }
+        }
+     }
+</script>
